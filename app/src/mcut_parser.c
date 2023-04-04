@@ -169,11 +169,10 @@ void resolve_command(char *command, uint8_t command_size)
     }
 
     char *token = strtok_r(command, STRTOK_QUERY, &strtok_rest);
-    if(token != NULL) {
+    if (token != NULL) {
         query = true;
         strncpy(cmd_parsing_buffer, token, command_size);
-    }
-    else {
+    } else {
         query = false;
         strncpy(cmd_parsing_buffer, command, command_size);
     }

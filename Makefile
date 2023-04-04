@@ -1,6 +1,11 @@
+# Astyle flags
+ASTYLE_FLAGS += --formatted
+ASTYLE_FLAGS += --suffix=none
+ASTYLE_FLAGS += --options="script/astyle.txt"
+
 # User config
 CC = gcc-12
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -D_FORTIFY_SOURCE=3
 
 INC_DIR += app
 INC_DIR += app/inc
@@ -22,6 +27,10 @@ OBJS = $(patsubst %.c, %.o, $(SOURCES))
 
 test: $(EXECUTABLE)
 	@echo $(EXECUTABLE) ready
+
+astyle:
+	@astyle $(ASTYLE_FLAGS) --recursive "app/*.c,*.h"
+	@astyle $(ASTYLE_FLAGS) "test/*.c"
 
 $(EXECUTABLE): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(EXECUTABLE) $(OBJS) $(LFLAGS) $(LIBS)

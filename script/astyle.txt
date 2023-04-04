@@ -1,0 +1,23 @@
+# Braces style
+--style=kr
+
+# Brace Modify Options
+--attach-inlines
+
+# Indentation Options
+--indent-namespaces
+--indent-col1-comments
+
+# Indentation Options
+--pad-oper
+--pad-header
+--unpad-paren
+--align-pointer=name
+
+# Formatting Options
+--convert-tabs
+
+# Other Options
+--suffix=none
+--indent-preprocessor
+--add-brackets
